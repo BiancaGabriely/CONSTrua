@@ -1,107 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS DA NAVBAR -->
+    <link rel="stylesheet" href="../assets/reutilizaveis/navbar/navbar.css">
+
+    <!-- CSS DO DASHBOARD -->
+    <link rel="stylesheet" href="dashboard.css">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/js/dashboard.js"></script>
+
     <title>Dashboard</title>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
-        <div class="container-fluid">
+    <div id="navbar-container"></div>
 
-            <!-- Logo -->
-            <a class="navbar-brand fw-bold" href="#">CONStrua</a>
-
-            <!-- Botão Mobile -->
-            <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-
-                <!-- Menu -->
-                <ul class="navbar-nav me-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Categorias</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Meus Cursos</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Recursos</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ensinar</a>
-                    </li>
-
-                </ul>
-
-                <!-- Pesquisa -->
-                <form class="d-flex me-3">
-
-                    <input
-                        class="form-control"
-                        type="search"
-                        placeholder="Buscar cursos..."
-                    >
-
-                </form>
-
-                <!-- Ícones -->
-                <div class="d-flex align-items-center gap-3">
-
-                    <button class="btn">
-                        🔔
-                    </button>
-
-                    <button class="btn">
-                        🛒
-                    </button>
-
-                    <img src="img/avatar.png"
-                        class="rounded-circle"
-                        width="40"
-                        height="40">
-
-                </div>
-
-            </div>
-
-        </div>
-    </nav>
 
     <!-- CONTEÚDO -->
     <main class="container-fluid py-4">
 
-        <!-- Boas-vindas -->
+        <!-- BOAS-VINDAS -->
         <section class="mb-4">
 
             <div class="d-flex justify-content-between align-items-center">
 
                 <div>
-
                     <h2>Bem-vinda de volta, Sarah!</h2>
 
                     <p>
                         Você completou 75% da sua meta semanal.
                         Continue assim!
                     </p>
-
                 </div>
 
                 <button class="btn btn-primary">
@@ -112,29 +50,32 @@
 
         </section>
 
-        <!-- Cards -->
+
+        <!-- RESUMO -->
         <section class="row g-4">
 
-            <!-- Gráfico -->
+            <!-- GRÁFICO -->
             <div class="col-lg-6">
 
-                <div class="card h-100">
+                <div class="card card-dashboard h-100">
 
                     <div class="card-body">
 
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
 
-                            <h5>Conquistas</h5>
+                            <h5 class="mb-0">
+                                Conquistas
+                            </h5>
 
-                            <select class="form-select w-auto">
-
+                            <select class="form-select form-select-sm w-auto">
                                 <option>Esta Semana</option>
-
                             </select>
 
                         </div>
 
-                        <canvas id="grafico"></canvas>
+                        <div class="grafico-container">
+                            <canvas id="grafico"></canvas>
+                        </div>
 
                     </div>
 
@@ -142,24 +83,32 @@
 
             </div>
 
-            <!-- XP + Tempo -->
+
+            <!-- XP E TEMPO -->
             <div class="col-lg-3">
 
-                <div class="card mb-3">
+                <!-- XP -->
+                <div class="card card-xp mb-3">
 
                     <div class="card-body">
 
-                        <h6>Estudante do Curso</h6>
+                        <small>✦</small>
 
-                        <h3>1240 XP</h3>
+                        <h6>Créditos do Curso</h6>
+
+                        <h3>1,240 XP</h3>
 
                     </div>
 
                 </div>
 
-                <div class="card">
+
+                <!-- TEMPO -->
+                <div class="card card-tempo">
 
                     <div class="card-body">
+
+                        <small>◷</small>
 
                         <h6>Tempo Gasto</h6>
 
@@ -171,28 +120,35 @@
 
             </div>
 
-            <!-- Medalhas -->
+
+            <!-- CONQUISTAS -->
             <div class="col-lg-3">
 
-                <div class="card h-100">
+                <div class="card card-dashboard h-100">
 
                     <div class="card-body">
 
-                        <h5>Conquistas</h5>
+                        <h5>
+                            Conquistas
+                        </h5>
 
                         <ul class="list-group list-group-flush">
 
                             <li class="list-group-item">
-                                🏅 7-Day Streak
+                                🏅
+                                <strong>7-Day Streak</strong>
+                                <small>Consistente</small>
                             </li>
 
                             <li class="list-group-item">
-                                ⭐ Sequência de 7 dias
+                                ⭐
+                                <strong>Sequência de 7 dias</strong>
+                                <small>Estudante consistente</small>
                             </li>
 
                         </ul>
 
-                        <a href="#">
+                        <a href="#" class="medalhas">
                             Ver todas as 12 medalhas
                         </a>
 
@@ -204,17 +160,20 @@
 
         </section>
 
-        <!-- Cursos -->
+
+        <!-- CURSOS -->
         <section class="mt-5">
 
             <div class="d-flex justify-content-between align-items-center mb-3">
 
-                <h3>Cursos Matriculados</h3>
+                <h3>
+                    Cursos Matriculados
+                </h3>
 
                 <div>
 
                     <button class="btn btn-outline-secondary">
-                        ⬜
+                        ▦
                     </button>
 
                     <button class="btn btn-outline-secondary">
@@ -225,20 +184,40 @@
 
             </div>
 
+
             <div class="row g-4">
 
-                <!-- Curso 1 -->
+
+                <!-- CURSO 1 -->
                 <div class="col-md-4">
 
-                    <div class="card">
+                    <div class="card curso-card">
 
-                        <img src="img/curso1.jpg" class="card-img-top">
+                        <img
+                            src="../img/curso1.jpg"
+                            class="card-img-top"
+                            alt="Curso Advanced UI Design Systems">
 
                         <div class="card-body">
 
-                            <h5>Advanced UI Design Systems</h5>
+                            <h5>
+                                Advanced UI Design Systems
+                            </h5>
 
-                            <p>Módulo 4 de 12</p>
+                            <p>
+                                Módulo 4 de 12
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 40%">
+                                </div>
+                            </div>
+
+                            <small>
+                                40% concluído
+                            </small>
 
                         </div>
 
@@ -246,18 +225,37 @@
 
                 </div>
 
-                <!-- Curso 2 -->
+
+                <!-- CURSO 2 -->
                 <div class="col-md-4">
 
-                    <div class="card">
+                    <div class="card curso-card">
 
-                        <img src="img/curso2.jpg" class="card-img-top">
+                        <img
+                            src="../img/curso2.jpg"
+                            class="card-img-top"
+                            alt="Curso React Patterns for Scale">
 
                         <div class="card-body">
 
-                            <h5>React Patterns for Scale</h5>
+                            <h5>
+                                React Patterns for Scale
+                            </h5>
 
-                            <p>Módulo 6 de 10</p>
+                            <p>
+                                Módulo 6 de 10
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 60%">
+                                </div>
+                            </div>
+
+                            <small>
+                                60% concluído
+                            </small>
 
                         </div>
 
@@ -265,18 +263,37 @@
 
                 </div>
 
-                <!-- Curso 3 -->
+
+                <!-- CURSO 3 -->
                 <div class="col-md-4">
 
-                    <div class="card">
+                    <div class="card curso-card">
 
-                        <img src="img/curso3.jpg" class="card-img-top">
+                        <img
+                            src="../img/curso3.jpg"
+                            class="card-img-top"
+                            alt="Curso Growth Marketing 2024">
 
                         <div class="card-body">
 
-                            <h5>Growth Marketing 2024</h5>
+                            <h5>
+                                Growth Marketing 2024
+                            </h5>
 
-                            <p>Módulo 1 de 8</p>
+                            <p>
+                                Módulo 1 de 8
+                            </p>
+
+                            <div class="progress">
+                                <div
+                                    class="progress-bar"
+                                    style="width: 12%">
+                                </div>
+                            </div>
+
+                            <small>
+                                12% concluído
+                            </small>
 
                         </div>
 
@@ -290,5 +307,13 @@
 
     </main>
 
+
+    <!-- NAVBAR JS -->
+    <script src="../assets/reutilizaveis/navbar/navbar.js"></script>
+
+    <!-- DASHBOARD JS -->
+    <script src="dashboard.js"></script>
+
 </body>
-    
+
+</html>
